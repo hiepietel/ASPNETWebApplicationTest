@@ -1,0 +1,23 @@
+@using ASPNETWebApplicationTest.Models
+
+@model NumberModel
+@{
+    ViewBag.Title = "MainView";
+}
+
+<div class="container">
+    
+    
+    <h2>write a number</h2><br/> 
+    @using (Html.BeginForm())
+    {
+        @Html.TextBoxFor(x=>x.number)  
+        <button type="submit" class="btn-success" value="confirm">confirm</button> 
+    }
+    <br />
+    factorial: @Model.factorial <br />
+    square: @Model.square<br />
+    cube:  @Model.cube<br />
+    @if(Model.isPrime)this number is a prime
+    
+</div>
