@@ -36,7 +36,7 @@ namespace ASPNETWebApplicationTest.Controllers
             if (intTemp % 2 == 0) nm.isPrime = false;
             for (int i = 3; i < intTemp / 2 + 1; i += 2)
             {
-                if (intTemp % i == 0) nm.isPrime = true;
+                if (intTemp % i == 0) nm.isPrime = false;
             }
             return View(nm);
         }

@@ -5,7 +5,7 @@
     ViewBag.Title = "MainView";
 }
 
-<div class="container">
+<div class="container body-content">
     
     
     <h2>write a number</h2><br/> 
@@ -15,9 +15,17 @@
         <button type="submit" class="btn-success" value="confirm">confirm</button> 
     }
     <br />
-    factorial: @Model.factorial <br />
-    square: @Model.square<br />
-    cube:  @Model.cube<br />
-    @if(Model.isPrime)this number is a prime
-    
+   <p> factorial: @Model.factorial <br /> </p>
+   <p> square: @Model.square<br /> </p>
+   <p> cube:  @Model.cube<br /> </p>
+    @if (Model.isPrime)
+    {
+        <p>This number is a prime </p>
+    }
+    else
+    {
+        <p>This number is not a prime</p>
+    }
+
+
 </div>
