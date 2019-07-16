@@ -197,6 +197,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\OrmLite\OrmLiteView.cshtml" />
     <Content Include="Views\OrmLite\Index.cshtml" />
+    <Content Include="Views\OrmLite\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

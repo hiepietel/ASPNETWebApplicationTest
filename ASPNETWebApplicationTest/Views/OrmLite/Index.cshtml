@@ -1,7 +1,13 @@
-﻿
+﻿@using ASPNETWebApplicationTest.Models
+
+@model SimpleModel
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
+<button class="btn-primary">@Html.ActionLink("Create", "Create", "OrmLite")</button>
+<li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+<li>@Html.ActionLink("HelloWorld", "MainView", "HelloWorld")</li>
+<li>@Html.ActionLink("OrmLite", "Index", "OrmLite")</li>
 
