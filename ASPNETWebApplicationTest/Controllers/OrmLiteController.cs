@@ -27,7 +27,7 @@ namespace ASPNETWebApplicationTest.Controllers
 
             //List<HumanResourcesDepartmentModel> output = db.SelectByIds(new[] { 1, 2, 3 }).ToList();
             //int val = db.ExecuteSql("select * from HumanResources.Department");
-            //db.DropAndCreateTable<SimpleModel>(); //DROP (if exist) and CREATE Table from User POCO
+            db.DropAndCreateTable<SimpleModel>(); //DROP (if exist) and CREATE Table from User POCO
             //db.Insert(                     //INSERT multiple Users by params
             //    new SimpleModel { Id = 1, Name = "A"},
             //    new SimpleModel { Id = 2, Name = "B"},
