@@ -1,0 +1,24 @@
+@using ASPNETWebApplicationTest.Models
+
+@model List<SimpleModel>
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="form-horizontal">
+    <table>
+    @foreach (var sm in Model)
+    {
+        <td>
+                @sm.Name 
+        </td>
+        <td>
+                @sm.Description
+         </td>
+        
+    }
+        </table>
+
+          
+
+</div>

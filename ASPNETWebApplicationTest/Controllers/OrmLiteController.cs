@@ -27,7 +27,7 @@ namespace ASPNETWebApplicationTest.Controllers
 
             //List<HumanResourcesDepartmentModel> output = db.SelectByIds(new[] { 1, 2, 3 }).ToList();
             //int val = db.ExecuteSql("select * from HumanResources.Department");
-            db.DropAndCreateTable<SimpleModel>(); //DROP (if exist) and CREATE Table from User POCO
+            //db.DropAndCreateTable<SimpleModel>(); //DROP (if exist) and CREATE Table from User POCO
             //db.Insert(                     //INSERT multiple Users by params
             //    new SimpleModel { Id = 1, Name = "A"},
             //    new SimpleModel { Id = 2, Name = "B"},
@@ -41,9 +41,7 @@ namespace ASPNETWebApplicationTest.Controllers
         public ActionResult Create(SimpleModel sm)
         {
             var dbFactory = new OrmLiteConnectionFactory(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString, SqlServerDialect.Provider);
-            using (var db = dbFactory.Open())
-            {
-             
+            using (var db = dbFactory.Open()){
                 db.Insert(sm);
             }
             return View();
@@ -52,5 +50,17 @@ namespace ASPNETWebApplicationTest.Controllers
         {
             return View(new SimpleModel());
         }
+        public ActionResult Details()
+        {
+            var dbFactory = new OrmLiteConnectionFactory(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString, SqlServerDialect.Provider);
+            using (var db = dbFactory.Open())
+            {
+                List<SimpleModel> sm = db.Select<SimpleModel>(x => x.Name.Contains("name"));
+                return View(sm);
+            }
+           
+        }
+        
+        
     }
 }
