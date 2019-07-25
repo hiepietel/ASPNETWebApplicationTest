@@ -4,20 +4,21 @@
 @{
     ViewBag.Title = "Details";
 }
-
+<h2>Details</h2>
 <div class="form-horizontal">
-    <table>
-    @foreach (var sm in Model)
-    {
-        <td>
-                @sm.Name 
-        </td>
-        <td>
-                @sm.Description
-         </td>
-        
-    }
-        </table>
+    <table class="table">
+        <tr>
+            <th> Name </th>
+            <th>Description</th>
+        </tr>
+        @foreach (var sm in Model)
+        {
+            <tr>
+                <td>@sm.Name</td>
+                <td>@sm.Description</td>
+            </tr>
+        }
+    </table>
 
           
 

@@ -55,11 +55,28 @@ namespace ASPNETWebApplicationTest.Controllers
             var dbFactory = new OrmLiteConnectionFactory(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString, SqlServerDialect.Provider);
             using (var db = dbFactory.Open())
             {
-                List<SimpleModel> sm = db.Select<SimpleModel>(x => x.Name.Contains("name"));
+                List<SimpleModel> sm = db.Select<SimpleModel>(x => x.Name.Contains(""));
                 return View(sm);
             }
            
         }
+
+        public ActionResult Search()
+        {
+            return View(new SimpleModel());
+        }
+        [HttpPost]
+        public ActionResult Search(SimpleModel model)
+        {
+            var dbFactory = new OrmLiteConnectionFactory(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString, SqlServerDialect.Provider);
+            using (var db = dbFactory.Open())
+            {
+                SimpleModel sm = db.Single<SimpleModel>(x => x.Name.Contains(model.Name));
+                return View(sm);
+            }
+            //return View();
+        }
+        
         
         
     }

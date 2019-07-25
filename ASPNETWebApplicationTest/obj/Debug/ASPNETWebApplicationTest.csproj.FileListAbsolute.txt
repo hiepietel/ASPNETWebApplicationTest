@@ -185,3 +185,7 @@ C:\Users\hiepietel\RiderProjects\ASPNETWebApplicationTest\ASPNETWebApplicationTe
 C:\Users\hiepietel\RiderProjects\ASPNETWebApplicationTest\ASPNETWebApplicationTest\bin\System.Memory.xml
 C:\Users\hiepietel\RiderProjects\ASPNETWebApplicationTest\ASPNETWebApplicationTest\bin\System.Numerics.Vectors.xml
 C:\Users\hiepietel\RiderProjects\ASPNETWebApplicationTest\ASPNETWebApplicationTest\bin\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\hiepietel\RiderProjects\ASPNETWebApplicationTest\ASPNETWebApplicationTest\bin\PagedList.dll
+C:\Users\hiepietel\RiderProjects\ASPNETWebApplicationTest\ASPNETWebApplicationTest\bin\PagedList.Mvc.dll
+C:\Users\hiepietel\RiderProjects\ASPNETWebApplicationTest\ASPNETWebApplicationTest\bin\PagedList.xml
+C:\Users\hiepietel\RiderProjects\ASPNETWebApplicationTest\ASPNETWebApplicationTest\bin\PagedList.Mvc.xml
