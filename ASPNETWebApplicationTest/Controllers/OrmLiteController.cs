@@ -10,6 +10,7 @@ using ServiceStack.OrmLite.SqlServer;
 using ServiceStack.DataAnnotations;
 using ASPNETWebApplicationTest.Models;
 using System.Configuration;
+using PagedList;
 
 namespace ASPNETWebApplicationTest.Controllers
 {
