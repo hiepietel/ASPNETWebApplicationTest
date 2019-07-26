@@ -155,13 +155,14 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CarController.cs" />
     <Compile Include="Controllers\HelloWorldController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrmLiteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\CarModel.cs" />
     <Compile Include="Models\HumanResourcesDepartmentModel.cs" />
     <Compile Include="Models\NumberModel.cs" />
     <Compile Include="Models\SimpleModel.cs" />
@@ -192,6 +193,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Car\Create.cshtml" />
+    <Content Include="Views\Car\Index.cshtml" />
     <Content Include="Views\HelloWorld\MainView.cshtml" />
     <Content Include="Views\OrmLite\Details.cshtml" />
     <Content Include="Views\OrmLite\Search.cshtml" />

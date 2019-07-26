@@ -4,7 +4,7 @@ using ServiceStack.DataAnnotations;
 
 namespace ASPNETWebApplicationTest.Models
 {
-    public class Car
+    public class CarModel
     {
         [PrimaryKey]
         [AutoIncrement]
@@ -25,6 +25,8 @@ namespace ASPNETWebApplicationTest.Models
         [System.ComponentModel.DataAnnotations.Range(0, 1000)]
         public double VMax { get; set; } 
         public double Acceleration { get; set; }
+        
+        public bool FirstOwner { get; set; }
         
     }
 }
