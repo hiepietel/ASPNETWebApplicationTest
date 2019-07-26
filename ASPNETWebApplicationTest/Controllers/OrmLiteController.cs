@@ -45,7 +45,10 @@ namespace ASPNETWebApplicationTest.Controllers
             using (var db = dbFactory.Open()){
                 db.Insert(sm);
             }
-            return View();
+
+            sm.Name = "";
+            sm.Description = "";
+            return View(sm);
         }
         public ActionResult Create()
         {
