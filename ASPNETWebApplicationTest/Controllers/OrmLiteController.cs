@@ -42,14 +42,26 @@ namespace ASPNETWebApplicationTest.Controllers
         {
             var dbFactory = new OrmLiteConnectionFactory(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString, SqlServerDialect.Provider);
             using (var db = dbFactory.Open())
-            {
-             
+            {           
                 db.Insert(sm);
             }
             return View();
         }
         public ActionResult Create()
         {
+            return View(new SimpleModel());
+        }
+        public ActionResult Read()
+        {
+            var dbFactory = new OrmLiteConnectionFactory(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString, SqlServerDialect.Provider);
+            using (var db = dbFactory.Open())
+            {
+                SimpleModel simpleModel = db.SingleById<SimpleModel>(1);
+                SimpleModels simpleModels = new SimpleModels();
+                simpleModels.simpleModels= db.LoadSelect<SimpleModel>().ToList();
+
+                return View(simpleModels);
+            }
             return View(new SimpleModel());
         }
     }
