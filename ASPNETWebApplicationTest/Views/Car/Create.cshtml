@@ -1,0 +1,42 @@
+@using ASPNETWebApplicationTest.Resources
+@model ASPNETWebApplicationTest.Models.CarModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Producer, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Producer, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Producer, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Model, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Model, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Model, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Segment, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Segment", new SelectList(Enum.GetValues(typeof(CarSegment))),
+                            "Select Segment",new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Segment, "", new { @class = "text-danger" })
+                    </div>
+                </div>  
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstOwner, htmlAttributes: new { @class = "control-label col-md-2"})
+                    @Html.CheckBoxFor(model => model.FirstOwner)
+                    @Html.ValidationMessageFor(model => model.FirstOwner, "", new { @class = "text-danger" })
+                </div>
+    </div>
+}

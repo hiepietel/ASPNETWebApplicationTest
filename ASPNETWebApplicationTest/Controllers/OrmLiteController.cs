@@ -10,6 +10,7 @@ using ServiceStack.OrmLite.SqlServer;
 using ServiceStack.DataAnnotations;
 using ASPNETWebApplicationTest.Models;
 using System.Configuration;
+using PagedList;
 
 namespace ASPNETWebApplicationTest.Controllers
 {
@@ -41,28 +42,66 @@ namespace ASPNETWebApplicationTest.Controllers
         public ActionResult Create(SimpleModel sm)
         {
             var dbFactory = new OrmLiteConnectionFactory(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString, SqlServerDialect.Provider);
-            using (var db = dbFactory.Open())
-            {           
+
+
+            using (var db = dbFactory.Open()){
+
                 db.Insert(sm);
             }
-            return View();
+
+            sm.Name = "";
+            sm.Description = "";
+            return View(sm);
         }
         public ActionResult Create()
         {
             return View(new SimpleModel());
         }
+
         public ActionResult Read()
+            {
+
+            return View();
+            }
+
+        public ActionResult Details()
+
         {
             var dbFactory = new OrmLiteConnectionFactory(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString, SqlServerDialect.Provider);
             using (var db = dbFactory.Open())
             {
+
                 SimpleModel simpleModel = db.SingleById<SimpleModel>(1);
                 SimpleModels simpleModels = new SimpleModels();
-                simpleModels.simpleModels= db.LoadSelect<SimpleModel>().ToList();
+                simpleModels.simpleModels = db.LoadSelect<SimpleModel>().ToList();
 
                 return View(simpleModels);
             }
             return View(new SimpleModel());
         }
+        
+
+           
+        
+
+        public ActionResult Search()
+        {
+            return View(new SimpleModel());
+        }
+        [HttpPost]
+        public ActionResult Search(SimpleModel model)
+        {
+            var dbFactory = new OrmLiteConnectionFactory(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString, SqlServerDialect.Provider);
+            using (var db = dbFactory.Open())
+            {
+                SimpleModel sm = db.Single<SimpleModel>(x => x.Name.Contains(model.Name));
+                return View(sm);
+            }
+            //return View();
+        }
+        
+        
+        
+
     }
 }

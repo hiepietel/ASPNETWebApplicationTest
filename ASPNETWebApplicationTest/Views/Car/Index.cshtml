@@ -1,0 +1,38 @@
+@using ASPNETWebApplicationTest.Models
+
+@model List<CarModel>
+
+@{
+    ViewBag.Title = "Car Index";
+}
+<div class="form-horizontal">
+    <button class="btn btn-default">@Html.ActionLink("Create", "Create", "Car")</button>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col"> @Html.LabelFor(Model => Model[0].Producer) </th>
+            <th scope="col"> Model </th>
+            <th scope="col"> Segment </th>
+            <th scope="col"> Fuel </th>
+            <th scope="col"> Engine Capacity </th>
+            <th scope="col"> 0-100 km/h </th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td class="item"> @item.Producer</td>
+                <td class="item"> @item.Model </td>
+                <td class="item"> @item.Segment </td>
+                <td class="item"> @item.Fuel</td>
+                <td class="item">@item.EngineCapacity</td>
+                <td> @item.Acceleration</td>
+            </tr>
+
+        }
+        </tbody>
+    </table>
+    <h2>title</h2>
+</div>
