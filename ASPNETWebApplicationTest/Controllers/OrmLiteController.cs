@@ -42,10 +42,8 @@ namespace ASPNETWebApplicationTest.Controllers
         public ActionResult Create(SimpleModel sm)
         {
             var dbFactory = new OrmLiteConnectionFactory(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString, SqlServerDialect.Provider);
-
-
-            using (var db = dbFactory.Open()){
-
+            using (var db = dbFactory.Open())
+            {
                 db.Insert(sm);
             }
 
@@ -57,32 +55,16 @@ namespace ASPNETWebApplicationTest.Controllers
         {
             return View(new SimpleModel());
         }
-
-        public ActionResult Read()
-            {
-
-            return View();
-            }
-
         public ActionResult Details()
-
         {
             var dbFactory = new OrmLiteConnectionFactory(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString, SqlServerDialect.Provider);
             using (var db = dbFactory.Open())
             {
-
-                SimpleModel simpleModel = db.SingleById<SimpleModel>(1);
-                SimpleModels simpleModels = new SimpleModels();
-                simpleModels.simpleModels = db.LoadSelect<SimpleModel>().ToList();
-
-                return View(simpleModels);
+                List<SimpleModel> sm = db.Select<SimpleModel>(x => x.Name.Contains(""));
+                return View(sm);
             }
-            return View(new SimpleModel());
-        }
-        
 
-           
-        
+        }
 
         public ActionResult Search()
         {
@@ -99,9 +81,8 @@ namespace ASPNETWebApplicationTest.Controllers
             }
             //return View();
         }
-        
-        
-        
+
+
 
     }
 }
