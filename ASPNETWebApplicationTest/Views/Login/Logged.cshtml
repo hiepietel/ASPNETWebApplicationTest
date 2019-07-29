@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewBag.Title = "Logged";
+    if(Session["userID"] == null)
+    {
+        Response.Redirect("~/Login/Index")
+    }
+}
+
+<h2>Logged</h2>
+
