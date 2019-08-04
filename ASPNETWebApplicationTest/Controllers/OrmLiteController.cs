@@ -82,6 +82,10 @@ namespace ASPNETWebApplicationTest.Controllers
             //return View();
         }
 
+        public ActionResult Read()
+        {
+            return View();
+        }    
 
 
     }

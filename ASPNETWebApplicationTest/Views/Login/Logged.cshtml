@@ -1,9 +1,9 @@
 ﻿
 @{
     ViewBag.Title = "Logged";
-    if(Session["userID"] == null)
+    if(Session["userName"] == null)
     {
-        Response.Redirect("~/Login/Index")
+        Response.Redirect("~/Login/Index");
     }
 }
 

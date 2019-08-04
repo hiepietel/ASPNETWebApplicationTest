@@ -24,8 +24,8 @@ namespace ASPNETWebApplicationTest.Controllers
             {
                 bool exist = db.Exists<User>(x => x.UserName == user.UserName && x.Password == user.Password);
                 if (exist)
-                 {
-                    Session["userID"] = user.UserName;
+                {
+                    Session["userName"] = user.UserName;
                     return RedirectToAction("Index", "Home");
                 }
                 else

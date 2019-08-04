@@ -27,5 +27,10 @@ namespace ASPNETWebApplicationTest.Controllers
             //TODO - make Create Controller and View 
             return View();
         }
+
+        public ActionResult Create(CarModel carModel)
+        {
+            return View()
+        }
     }
 }
